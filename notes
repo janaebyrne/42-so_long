@@ -1,0 +1,52 @@
+
+april 21st:
+
+made a file maps.c which is able to read a map and add it to the map array in the t_complete data structure (defined in header)
+started working on validate_map file which will check the map is valid
+so far it:
+checks the top and bottom and sides are all walls
+
+
+August 17th:
+finished map validation and made a main.c file to test it - it works
+checks that its a rectangle / 
+checks that there is a valid path
+checks that there is at leasr one exit, 1 collectable and one starting position/
+
+starting tryingg to test my so_long file which opens a window but came into trouble when compiling because it did not find x11 development libraries
+need to compile with path to minilibx from users/janaebyrne etc
+
+august 18th:
+
+compiled successfully with following :
+ gcc -o solong game_logic/so_long.c -I./headers -I/Users/janaebyrne/42Berlin/solong/solong42-/minilibx-mac -L/Users/janaebyrne/42Berlin/solong/solong42-/minilibx-mac -lmlx -framework OpenGL -framework AppKit
+
+ this is to test so long
+
+ it works and opens a window with a black background
+i will need to edit the library and some commands when moving back to linux
+
+
+continued august 18th:
+made a file called picture.c which will be used to draw the map
+updated so long file 
+main.c now validates the map and then opens the window
+
+
+
+
+other to dos:
+
+Check header
+link libft and getnextline
+check for incorrect use of functions (e.g. printf)
+then figure out how to parse the valid map into graphical environment
+error management for if error is encountered - must exit in a clean way
+
+makefile
+
+
+
+key command:
+gcc -o solong game_logic/so_long.c -I./headers -I/opt/X11/include -L/Users/janaebyrne/42Berlin/solong/solong42-/minilibx -lmlx -L/opt/X11/lib -lX11 -lXext -framework OpenGL -framework AppKit
+
