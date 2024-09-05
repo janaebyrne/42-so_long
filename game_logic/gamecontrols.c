@@ -1,13 +1,12 @@
 #include "so_long.h"
 
-
 int  update_player_position(t_complete *game, int i, int j)
 {
     if (game->map[j][i] == 'E')
     {
         if (game->collectable_count != 0)
             return(0);
-        printf("You win!\n");
+        ft_printf("You win!\n");
         exit_point(game);
     }
 
@@ -27,7 +26,6 @@ int  update_player_position(t_complete *game, int i, int j)
         game->y_axis = j;
         game->player_moves++;
     }
-
 return (1);
 }
 
@@ -39,7 +37,6 @@ int  horizonal_move(t_complete *game, int movement)
 
     i = game->x_axis;
     j = game->y_axis;
-
     if (movement == 13)
     {
         j--;
@@ -60,8 +57,8 @@ int  horizonal_move(t_complete *game, int movement)
             return (0);
         game->map[j - 1][i] = '0';
     }
-    printf("Moves made: %i\n", game->player_moves);
-    printf("Collectables Left: %i\n", game->collectable_count);
+    ft_printf("Moves made: %i\n", game->player_moves);
+    ft_printf("Collectables Left: %i\n", game->collectable_count);
     return (1);
 }
 
@@ -73,7 +70,6 @@ int vertical_move(t_complete *game, int movement)
 
     i = game->x_axis;
     j = game->y_axis;
-
     if (movement == 0)
     {
         i--;
@@ -94,8 +90,8 @@ int vertical_move(t_complete *game, int movement)
             return (0);
         game->map[j][i - 1] = '0';
     }
-    printf("Moves made: %i\n", game->player_moves);
-    printf("Collectables Left: %i\n", game->collectable_count);
+    ft_printf("Moves made: %i\n", game->player_moves);
+    ft_printf("Collectables Left: %i\n", game->collectable_count);
     return (1);
 }
 
