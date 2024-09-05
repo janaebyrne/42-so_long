@@ -31,8 +31,6 @@ void	flood_fill(t_complete *game, char **visited_map, int x, int y)
 	if (x < 0 || y < 0 || x >= game->mapwidth || y >= game->mapheight ||
 		game->map[y][x] == '1' || visited_map[y][x] == 'V')
 		return;
-
-	// Mark this cell as visited
 	visited_map[y][x] = 'V';
 
 	// Recursively check in all four directions
@@ -41,22 +39,24 @@ void	flood_fill(t_complete *game, char **visited_map, int x, int y)
 	flood_fill(game, visited_map, x, y + 1);
 	flood_fill(game, visited_map, x, y - 1);
 }
-
 void check_valid_path(t_complete *game)
 {
 	char	**visited_map;
 	int		i;
 	int		j;
-
-	// Allocate memory for visited_map
+	
 	visited_map = malloc(game->mapheight * sizeof(char *));
-	for (i = 0; i < game->mapheight; i++)
-		visited_map[i] = ft_strdup(game->map[i]);
-
-	// Find the starting position
-	for (i = 0; i < game->mapheight; i++)
+	i = 0;
+	while (i < game->mapheight)
 	{
-		for (j = 0; j < game->mapwidth; j++)
+		visited_map[i] = ft_strdup(game->map[i]);
+		i++;
+	}
+	i = 0;
+	while (i < game->mapheight)
+	{
+		j = 0;
+		while (j < game->mapwidth)
 		{
 			if (game->map[i][j] == 'P')
 			{
@@ -64,25 +64,32 @@ void check_valid_path(t_complete *game)
 				flood_fill(game, visited_map, j, i);
 				break;
 			}
+			j++;
 		}
+		i++;
 	}
-
-	// Check if all collectables and the exit are reachable
-	for (i = 0; i < game->mapheight; i++)
+	i = 0;
+	while (i < game->mapheight)
 	{
-		for (j = 0; j < game->mapwidth; j++)
+		j = 0;
+		while (j < game->mapwidth)
 		{
 			if ((game->map[i][j] == 'C' || game->map[i][j] == 'E') && visited_map[i][j] != 'V')
 			{
-				printf("\nInvalid map: Unreachable collectable or exit\n");
+				ft_printf("\nInvalid map: Unreachable collectable or exit\n");
 				exit_point(game);
 			}
+			j++;
 		}
+		i++;
 	}
-
-	// Free the visited_map
-	for (i = 0; i < game->mapheight; i++)
+	i = 0;
+	while (i < game->mapheight)
+	{
 		free(visited_map[i]);
+		i++;
+	}
 	free(visited_map);
 }
+
 
