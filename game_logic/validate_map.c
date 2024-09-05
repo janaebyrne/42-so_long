@@ -56,7 +56,7 @@ void	if_walls(t_complete *game)
 	horizontal_walls = horizontalwalls(game);
 	if (!vertical_walls || !horizontal_walls)
 	{
-		printf("\nMap is missing walls\n");
+		ft_printf("\nMap is missing walls\n");
 		exit_point(game);
 	}
 }
@@ -76,7 +76,7 @@ int	is_rectange(t_complete *game)
 		// Compare the adjusted row length with mapwidth
 		if (row_length != game->mapwidth)
 		{
-			printf("\nThis map is not a rectangle\n");
+			ft_printf("\nThis map is not a rectangle\n");
 			exit_point(game);
 		}
 		i++;
@@ -130,7 +130,7 @@ void validate_elements(t_complete *game)
 				game->map[i][j] != 'P' && game->map[i][j] != 'E' &&
 				game->map[i][j] != 'C' && game->map[i][j] != '\n')
 			{
-				printf("\nError: Invalid character '%c' in map at position (%d, %d)\n", game->map[i][j], i, j);
+				ft_printf("\nError: Invalid character '%c' in map at position (%d, %d)\n", game->map[i][j], i, j);
 				exit_point(game);
 			}
 			if (game->map[i][j] == 'E')
@@ -145,7 +145,7 @@ void validate_elements(t_complete *game)
 	}
 	if (game->exit_count < 1 || game->collectable_count < 1 || game->player_moves != 1)
 	{
-		printf("\nInvalid map: must contain at least one exit, one collectable, and exactly one starting position\n");
+		ft_printf("\nInvalid map: must contain at least one exit, one collectable, and exactly one starting position\n");
 		exit_point(game);
 	}
 }
