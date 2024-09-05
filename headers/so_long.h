@@ -22,6 +22,7 @@
 # include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include "ft_printf.h"
 // # include <X11/X.h>
 // # include <X11/keysym.h>
 
