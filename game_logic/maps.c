@@ -4,8 +4,6 @@
 #define MAX_ROWS 100
 #define MAX_COLS 100
 
-
-
 int width_of_map(char *string)
 {
     int width;
@@ -18,7 +16,7 @@ int width_of_map(char *string)
     return (width);
 }
 //add line adds each read line of the map to the array in the t_complete set called game
-// it allocates memory for the new map baed on the size of the string times the map height
+// it allocates memory for the new map based on the size of the string times the map height
 // then it copies the text stored in temp into the map array
 
 int add_next_line(t_complete *game, char *line)
