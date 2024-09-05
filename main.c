@@ -11,12 +11,12 @@ int main(int argc, char **argv)
     game.mapwidth = 0;
     if (argc != 2)
     {
-        printf("Usage: %s <map_file>\n", argv[0]);
+        ft_printf("Usage: %s <map_file>\n", argv[0]);
         return 1;
     }
     if (!read_map(&game, argv))
     {
-        printf("Failed to read map from file\n");
+        ft_printf("Failed to read map from file\n");
         return 1;
     }
     validate_map(&game);
