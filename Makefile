@@ -7,7 +7,8 @@ CFLAGS = -Wall -Wextra -Werror
 # Source files
 SRCS = game_logic/maps.c game_logic/picture.c game_logic/validate_map.c \
        game_logic/validate_path.c game_logic/so_long.c game_logic/gamecontrols.c \
-       get_next_line/get_next_line.c get_next_line/get_next_line_utils.c \
+       get_next_line/get_next_line.c get_next_line/get_next_line_utils.c \ 
+	srcs/ft_printf.c \ //add other ft_printf files 
 
 # Object files
 OBJS = $(SRCS:.c=.o)
